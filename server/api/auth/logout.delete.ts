@@ -1,6 +1,8 @@
 export default eventHandler(async (event) => {
     // Détruire la session
-    await event.context.session.delete()
+    if (event.context.session) {
+        event.context.session.user = null
+    }
 
     return {
         success: true,

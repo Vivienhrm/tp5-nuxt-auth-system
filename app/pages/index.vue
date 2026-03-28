@@ -1,3 +1,13 @@
+<script setup>
+const { session } = await useSession()
+
+onMounted(() => {
+  if (session.value?.user) {
+    navigateTo('/connecte')
+  }
+})
+</script>
+
 <template>
   <div class="home-container">
     <h1>Bienvenue sur le TP5</h1>
